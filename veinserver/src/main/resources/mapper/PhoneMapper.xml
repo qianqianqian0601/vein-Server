@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huantek.veinserver.dao.PhoneVersionDao">
+
+
+    <insert id="PhoneVersionUP">
+        insert into vein_phoneVersion(phoneName,phoneSize,phoneCode,phoneInfo,phoneUrl,uploadTime)
+            values(#{name},#{size},#{code},#{info},#{url},#{time})
+    </insert>
+
+    <select id="PhoneVersionDownLatest" resultType="com.huantek.veinserver.model.PhoneVersionModel">
+        SELECT * from vein_phoneVersion where id =
+	        (select max(id) from vein_serverVersion)
+    </select>
+</mapper>
+

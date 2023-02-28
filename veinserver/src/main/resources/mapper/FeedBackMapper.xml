@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huantek.veinserver.dao.FeedBackDao">
+
+
+    <insert id="feedbackMessageAndIMG">
+        insert into vein_feedBack(ideaType,ideaInfo,e_mail,img) values (#{ideaType},#{ideaInfo},#{e_mail},#{img})
+    </insert>
+
+    <insert id="feedbackMessage">
+        insert into vein_feedBack(ideaType,ideaInfo,e_mail) values (#{ideaType},#{ideaInfo},#{e_mail})
+    </insert>
+</mapper>
+

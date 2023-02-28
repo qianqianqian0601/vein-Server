@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huantek.veinserver.dao.Handy2Dao">
+
+
+    <insert id="handy2VersionUP">
+        insert into vein_handy2Version(Handy2Name,Handy2Code,Handy2Info,Handy2Url,uploadTime)
+            values(#{name},#{code},#{info},#{url},#{time})
+    </insert>
+
+    <select id="handy2VersionDownLatest" resultType="com.huantek.veinserver.model.Handy2VersionModel">
+        SELECT * from vein_handy2Version where id =
+	        (select max(id) from vein_handy2Version)
+    </select>
+</mapper>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huantek.veinserver.dao.FirmwareVersionDao">
+
+    <insert id="firmwareVersionUP">
+        insert into vein_firmVersion(FirmVersionName,FirmVersionCode,FirmVersionInfo,FirmVersionUrl,uploadTime)
+            values(#{firmVersionName},#{firmVersionCode},#{firmVersionInfo},#{url},#{uploadTime})
+    </insert>
+
+    <select id="firmwareVersionDownLatest" resultType="com.huantek.veinserver.model.FirmVersionModel">
+        SELECT * from vein_firmVersion where id =
+	        (select max(id) from vein_firmVersion)
+    </select>
+</mapper>
+

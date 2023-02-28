@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huantek.veinserver.dao.SoftwareDao">
+
+
+    <insert id="softwareVersionUP">
+        insert into vein_softwareVersion(SoftwareName,SoftwareSize,SoftwareCode,SoftwareInfo,SoftwareUrl,uploadTime)
+            values(#{name},#{size},#{code},#{info},#{url},#{time})
+    </insert>
+
+    <select id="softwareVersionDownLatest" resultType="com.huantek.veinserver.model.SoftwareVersionModel">
+        SELECT * from vein_softwareVersion where id =
+	        (select max(id) from vein_softwareVersion)
+    </select>
+</mapper>
+
